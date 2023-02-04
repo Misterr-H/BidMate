@@ -20,7 +20,7 @@ export default function Home() {
           <Head>
             <title>BidMate</title>
           </Head>
-          <LandingPage/>
+          {/*<LandingPage/>*/}
           <Navbar/>
           <TabContext value={value}>
                 <TabList onChange={handleChange} aria-label="simple tabs example">
