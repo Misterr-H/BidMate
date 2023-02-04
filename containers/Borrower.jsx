@@ -1,6 +1,6 @@
 const Borrower = () => {
     return (
-        <div>
+        <div style={{backgroundColor:'#C0DEFF', padding: 0}}>
             <h1>Borrower</h1>
         </div>
     )
