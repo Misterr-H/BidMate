@@ -11,6 +11,7 @@ const Navbar = () => {
                 <h1 className="text-white mr-4">Balance: ₹1000</h1>
                 <button onClick={() => {
                     router.push('/portfolio')
+                        .then(() => window.scrollTo(0, 0));
                 }} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     Portfolio
                 </button>
