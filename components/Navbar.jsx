@@ -1,4 +1,4 @@
-//a beautiful navbar showing profile button on right most and balance available using tailwind css
+import router from 'next/router';
 
 const Navbar = () => {
     return (
@@ -8,9 +8,11 @@ const Navbar = () => {
                 <h1 className="text-white text-2xl">BidMate</h1>
             </div>
             <div className="flex items-center">
-                <h1 className="text-white mr-4">Balance: $1000</h1>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    Profile
+                <h1 className="text-white mr-4">Balance: ₹1000</h1>
+                <button onClick={() => {
+                    router.push('/portfolio')
+                }} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Portfolio
                 </button>
             </div>
         </div>
