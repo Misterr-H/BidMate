@@ -22,16 +22,16 @@ export default function Home() {
           </Head>
           <Navbar/>
           <TabContext value={value}>
-                <TabList onChange={handleChange} aria-label="simple tabs example" centered>
+                <TabList onChange={handleChange} aria-label="simple tabs example">
                     <Tab label="As Lender" value="1" />
                     <Tab label="As Borrower" value="2" />
                 </TabList>
-                <TabPanel value="1">
-                    <Lender name={'Himanshu'}/>
-                </TabPanel>
-                <TabPanel value="2">
-                    <Borrower/>
-                </TabPanel>
+            <TabPanel value="1">
+                <Lender name={'Himanshu'}/>
+            </TabPanel>
+            <TabPanel value="2">
+                <Borrower/>
+            </TabPanel>
           </TabContext>
       </>
   )
