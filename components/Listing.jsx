@@ -8,7 +8,6 @@ const Listing = ({name, creditScore, amount, time, rate}) => {
             <div className={'flex w-80 flex-col justify-center items-center text-cyan-600 p-3 ml-10'}>
                 <h1 className={'text-2xl font-bold'}>₹{amount}</h1>
                 <h1 className={'text-xl'}>{time} Months</h1>
-                {/*<h1 className={'text-xl'}>{rate}%</h1>*/}
             </div>
             <div className={'flex flex-col items-center text-cyan-600 p-4'}>
                 <h1 className={'text-xl'}>{rate}%</h1>

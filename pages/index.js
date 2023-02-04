@@ -7,6 +7,7 @@ import {useState} from "react";
 import Lender from "@/containers/Lender";
 import Borrower from "@/containers/Borrower";
 import Navbar from "@/components/Navbar";
+import LandingPage from "@/containers/LandingPage";
 
 export default function Home() {
     const [value, setValue] = useState('1');
@@ -19,6 +20,7 @@ export default function Home() {
           <Head>
             <title>BidMate</title>
           </Head>
+          <LandingPage/>
           <Navbar/>
           <TabContext value={value}>
                 <TabList onChange={handleChange} aria-label="simple tabs example">
