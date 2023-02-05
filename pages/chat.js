@@ -20,17 +20,6 @@ const Chat = () => {
     const timeInputRef = useRef(null);
     const rateInputRef = useRef(null);
 
-    const name = router.query.name;
-    const amount = router.query.amount;
-    const paramRate = router.query.rate;
-    const paramTime = router.query.time;
-
-    useEffect(() => {
-        UIStore.update(s => {
-            s.chat.push(<LeftBidBubble name={router.query.name} amount={router.query.amount} rate={router.query.rate} time={router.query.time} />);
-        });
-    }, []);
-
 
 
     const BidModal = () => {

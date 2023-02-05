@@ -3,7 +3,9 @@ import LeftBidBubble from "@/components/LeftBidBubble";
 
 export const UIStore = new Store({
     amount: 10000,
-    chat: [],
+    chat: [
+        <LeftBidBubble key={1} amount={10000} rate={10} time={12} />
+    ],
     login: false,
     email: 'user@bidmate.com',
     password: 'password',
@@ -15,4 +17,5 @@ export const UIStore = new Store({
         { id: 5, name: 'Mahua', amount: 23000, rate: 18, time: 6 },
         { id: 6, name: 'Shreya', amount: 22000, rate: 13, time: 9 },
     ],
+
 });

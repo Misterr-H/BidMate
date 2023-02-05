@@ -6,15 +6,7 @@ const Listing = ({name, creditScore, amount, time, rate}) => {
 
     return (
         <div onClick={() => {
-            router.push({
-                pathname: '/chat',
-                query: {
-                    name,
-                    amount,
-                    time,
-                    rate,
-                }
-            });
+            router.push('/chat')
         }} className={'shadow flex my-4 bg-white w-80 space-between hover:bg-gray-100 cursor-pointer justify-between'}>
             <div className={'flex flex-col justify-center items-center p-4'}>
                 <h1 className={'text-2xl'}>{name}</h1>
