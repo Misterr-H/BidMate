@@ -1,5 +1,7 @@
 import router from 'next/router';
 import {UIStore} from "@/store/store";
+import {DataGrid} from "@mui/x-data-grid";
+import {columns, rows} from "@/pages/portfolio";
 
 const Navbar = () => {
     const amount = UIStore.useState(s => s.amount);
@@ -11,7 +13,7 @@ const Navbar = () => {
                 <h1 className="text-white text-2xl">BidMate</h1>
             </div>
             <div className="flex items-center">
-                <h1 className="text-white mr-4">Balance: ₹{amount}</h1>
+                <h1 className="text-white hidden sm:inline mr-4">Balance: ₹{amount}</h1>
                 <button onClick={() => {
                     router.push('/portfolio')
                         .then(() => window.scrollTo(0, 0));

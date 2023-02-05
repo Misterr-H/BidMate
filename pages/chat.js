@@ -1,4 +1,4 @@
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import LeftBidBubble from "@/components/LeftBidBubble";
 import RightBidBubble from "@/components/RightBidBubble";
 import LeftChatBubble from "@/components/LeftChatBubble";
@@ -6,8 +6,10 @@ import RightChatBubble from "@/components/RightChatBubble";
 import MessageEntry from "@/components/MessageEntry";
 import Modal from '@mui/material/Modal';
 import {UIStore} from "@/store/store";
+import {useRouter} from "next/router";
 
 const Chat = () => {
+    const router = useRouter();
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -17,6 +19,19 @@ const Chat = () => {
     const [rate, setRate] = useState("");
     const timeInputRef = useRef(null);
     const rateInputRef = useRef(null);
+
+    const name = router.query.name;
+    const amount = router.query.amount;
+    const paramRate = router.query.rate;
+    const paramTime = router.query.time;
+
+    useEffect(() => {
+        UIStore.update(s => {
+            s.chat.push(<LeftBidBubble name={router.query.name} amount={router.query.amount} rate={router.query.rate} time={router.query.time} />);
+        });
+    }, []);
+
+
 
     const BidModal = () => {
         return (
@@ -65,8 +80,8 @@ const Chat = () => {
     }
 
     return (
-        <>
-            <div className={'px-20 py-10'}>
+        <div className={''}>
+            <div className={'px-2 sm:px-20 py-10'}>
                 {chat}
             </div>
             <BidModal />
@@ -76,7 +91,7 @@ const Chat = () => {
                 })
                 setMessage("");
             }} onBidClick={handleOpen} />
-        </>
+        </div>
     )
 }
 

@@ -9,6 +9,8 @@ import Borrower from "@/containers/Borrower";
 import {UIStore} from "@/store/store";
 import {useRouter} from "next/router";
 import Listing from "@/components/Listing";
+import {DataGrid} from "@mui/x-data-grid";
+import {columns, rows} from "@/pages/portfolio";
 
 
 export default function Home() {
@@ -16,11 +18,11 @@ export default function Home() {
     const [value, setValue] = useState('1');
     const login = UIStore.useState(s => s.login);
 
-    if(!login) {
-        if(typeof window !== 'undefined') {
-            router.push('/login');
-        }
-    }
+    // if(!login) {
+    //     if(typeof window !== 'undefined') {
+    //         router.push('/login');
+    //     }
+    // }
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -30,7 +32,7 @@ export default function Home() {
           <Head>
             <title>BidMate</title>
           </Head>
-          <div className={'bg-gray-300 h-screen'}>
+          <div className={'bg-gray-300 h-max'}>
               <TabContext value={value}>
                   <div className={'bg-white shadow border-b-1 border-black'}>
                     <TabList onChange={handleChange} aria-label="simple tabs example">

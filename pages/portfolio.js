@@ -3,25 +3,18 @@ import {UIStore} from "@/store/store";
 import Modal from "@mui/material/Modal";
 import {useRef, useState} from "react";
 
-export const columns = [
-    { field: 'id', headerName: 'ID', width: 70 },
-    { field: 'name', headerName: 'Name', width: 140 },
-    { field: 'amount', headerName: 'Amount', type: 'number', width: 140 },
-    { field: 'rate', headerName: 'Rate', type: 'number', width: 70 },
-    { field: 'time', headerName: 'Time (Months)', type: 'number', width: 140 },
-    { field: 'interest', headerName: 'Interest', type: 'number', width: 70 },
-];
-
-export const rows = [
-    { id: 1, name: 'Himanshu', amount: 10000, rate: 10, time: 10, interest: 1000 },
-    { id: 2, name: 'Manya', amount: 12000, rate: 7, time: 12, interest: 988 },
-    { id: 3, name: 'Nikita Arora', amount: 50000, rate: 32, time: 40, interest: 19011 },
-    { id: 4, name: 'Pragati', amount: 19000, rate: 14, time: 19, interest: 4342 },
-    { id: 5, name: 'Mahua', amount: 23000, rate: 18, time: 6, interest: 3000 },
-    { id: 6, name: 'Shreya', amount: 22000, rate: 13, time: 9, interest: 5000 },
-];
 
 const PortfolioPage = () => {
+    const columns = [
+        { field: 'id', headerName: 'ID', width: 70 },
+        { field: 'name', headerName: 'Name', width: 140 },
+        { field: 'amount', headerName: 'Amount', type: 'number', width: 140 },
+        { field: 'rate', headerName: 'Rate', type: 'number', width: 70 },
+        { field: 'time', headerName: 'Time (Months)', type: 'number', width: 140 },
+    ];
+
+    const rows = UIStore.useState(s => s.portfolioRows);
+
     const amount = UIStore.useState(s => s.amount);
     const [isDepositModalOpen, setIsDepositModalOpen] = useState(false);
     const [isWithdrawModalOpen, setIsWithdrawModalOpen] = useState(false);
@@ -58,7 +51,7 @@ const PortfolioPage = () => {
                             });
                             setIsDepositModalOpen(false);
                         }} className={'bg-cyan-500 mx-2 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'} type="button">
-                            Deposit
+                            Add Money
                         </button>
                         <button onClick={() => {
                             setIsDepositModalOpen(false);
@@ -119,7 +112,7 @@ const PortfolioPage = () => {
     }
 
     return (
-        <div className={'flex flex-col'}>
+        <div className={'flex flex-col bg-white'}>
             <div className={'flex flex-row mt-16'}>
                 <h1 className={'mx-auto font-bold text-4xl text-cyan-500'}>₹{amount}</h1>
             </div>
@@ -128,12 +121,13 @@ const PortfolioPage = () => {
                     Withdraw
                 </button>
                 <button onClick={() => setIsDepositModalOpen(true) } className={'bg-cyan-500 mx-2 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'} type="button">
-                    Deposit
+                    Add Money
                 </button>
             </div>
             <DepositModal />
             <WithdrawModal />
-            <div className={'w-1/2 mx-auto mt-10'}>
+            <div className={'w-full sm:w-1/2 mx-1 sm:mx-auto mt-10'}>
+                <h1 className={'text-2xl font-bold text-cyan-500'}>Investments</h1>
                 <DataGrid rows={rows} columns={columns} pageSize={10} autoHeight={true} />
             </div>
         </div>

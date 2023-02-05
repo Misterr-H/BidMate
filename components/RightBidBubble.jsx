@@ -1,8 +1,8 @@
-const RightBidBubble = ({ amount, time, rate, isLast = true }) => {
+const RightBidBubble = ({name, amount, time, rate, isLast = true }) => {
     return (
         <div className="flex my-1 flex-col items-end">
             <div className="flex flex-col items-end">
-                <div className="bg-gray-300 w-48 rounded-lg p-2">
+                <div className="bg-white w-48 rounded-lg p-2">
                     <p className="text-gray-700">Amount: {amount}</p>
                     <p className="text-gray-700">Time: {time} Months</p>
                     <p className="text-gray-700">Rate: {rate}</p>

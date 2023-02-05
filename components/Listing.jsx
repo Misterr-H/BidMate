@@ -1,11 +1,20 @@
 import {useRouter} from "next/router";
+import * as querystring from "querystring";
 
 const Listing = ({name, creditScore, amount, time, rate}) => {
     const router = useRouter();
 
     return (
         <div onClick={() => {
-            router.push('/chat');
+            router.push({
+                pathname: '/chat',
+                query: {
+                    name,
+                    amount,
+                    time,
+                    rate,
+                }
+            });
         }} className={'shadow flex my-4 bg-white w-80 space-between hover:bg-gray-100 cursor-pointer justify-between'}>
             <div className={'flex flex-col justify-center items-center p-4'}>
                 <h1 className={'text-2xl'}>{name}</h1>
