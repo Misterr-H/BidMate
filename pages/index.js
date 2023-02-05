@@ -18,11 +18,11 @@ export default function Home() {
     const [value, setValue] = useState('1');
     const login = UIStore.useState(s => s.login);
 
-    // if(!login) {
-    //     if(typeof window !== 'undefined') {
-    //         router.push('/login');
-    //     }
-    // }
+    if(!login) {
+        if(typeof window !== 'undefined') {
+            router.push('/login');
+        }
+    }
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
