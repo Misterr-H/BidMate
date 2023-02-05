@@ -8,6 +8,7 @@ import Lender from "@/containers/Lender";
 import Borrower from "@/containers/Borrower";
 import {UIStore} from "@/store/store";
 import {useRouter} from "next/router";
+import Listing from "@/components/Listing";
 
 
 export default function Home() {
