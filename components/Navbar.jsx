@@ -1,6 +1,9 @@
 import router from 'next/router';
+import {UIStore} from "@/store/store";
 
 const Navbar = () => {
+    const amount = UIStore.useState(s => s.amount);
+
     return (
         <div className="flex justify-between items-center bg-gray-800 p-4">
             <div className="flex items-center">
@@ -8,7 +11,7 @@ const Navbar = () => {
                 <h1 className="text-white text-2xl">BidMate</h1>
             </div>
             <div className="flex items-center">
-                <h1 className="text-white mr-4">Balance: ₹1000</h1>
+                <h1 className="text-white mr-4">Balance: ₹{amount}</h1>
                 <button onClick={() => {
                     router.push('/portfolio')
                         .then(() => window.scrollTo(0, 0));

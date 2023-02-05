@@ -2,7 +2,7 @@
 
 const RightChatBubble = ({ message }) => {
     return (
-        <div className="flex flex-col items-end">
+        <div className="flex my-1 flex-col items-end">
             <div className="flex flex-col items-end">
                 <div className="bg-gray-300 rounded-lg p-2">
                     <p className="text-gray-700">{message}</p>
